@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for pgr_git in pgr_git %}
+
+    <div class="blog-post">
+        <h2 class="blog-post-title">
+            {{ pgr_git.title }}
+        </h2>
+        <p class="blog-post-meta">{{pgr_git.created_at|date:'d, M Y' }} <a href="#">{{ pgr_git.author.get_full_name }}</a></p>
+        {{ pgr_git.content|safe }}
+    </div><!-- /.blog-post -->
+    {% endfor %}
+{% endblock %}

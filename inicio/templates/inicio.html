@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+
+{% block sub_header %}
+    <div class="row mb-2">
+        <div class="col-md-6">
+        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+            <strong class="d-inline-block mb-2 text-primary">Conhecendo mais sobre exoplanetas:</strong>
+            <h3 class="mb-0">
+                <a class="text-dark" href="#">O que são exoplanetas?</a>
+            </h3>
+            <p class="card-text mb-auto">Conheça nesse artigo o que são exoplanetas e qual a importância de seu estudo.</p>
+            <a href="#">Ir até o artigo.</a>
+            </div>
+            <!--<img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">-->
+        </div>
+        </div>
+        <div class="col-md-6">
+        <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+            <strong class="d-inline-block mb-2 text-success">Observação de exoplanetas em trânsito:</strong>
+            <h3 class="mb-0">
+                <a class="text-dark" href="#">O que é o método de trânsito?</a>
+            </h3>
+            <!--<div class="mb-1 text-muted">Nov 11</div>-->
+            <p class="card-text mb-auto">Conheça nesse post mais sobre o método de observação de exoplanetas em trânsito, bem como suas vantagens, desvantagens e importância.</p>
+            <a href="/posts/2">Ir até o artigo.</a>
+            </div>
+            <!-- <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">-->
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+        Conheça nossos posts!
+    </h3>
+    {% for post in post %}
+
+    <div class="blog-post">
+        <h2 class="blog-post-title">
+            <a href="/posts/{{ post.pk }}">{{ post.title }}</a>
+        </h2>
+        <p class="blog-post-meta">{{post.created_at|date:'d, M Y' }} <a href="#">{{ post.author.get_full_name }}</a></p>
+        {{ post.sumary|safe }}
+    </div><!-- /.blog-post -->
+    {% endfor %}
+
+{% endblock %}

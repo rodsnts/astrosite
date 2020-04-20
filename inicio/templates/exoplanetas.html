@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for exoplanetas in exoplanetas %}
+
+    <div class="blog-post">
+        <h2 class="blog-post-title">
+            {{ exoplanetas.title }}
+        </h2>
+        <p class="blog-post-meta">{{proj.created_at|date:'d, M Y' }} <a href="#">{{ exoplanetas.author.get_full_name }}</a></p>
+        {{ exoplanetas.content|safe }}
+    </div><!-- /.blog-post -->
+    {% endfor %}
+    <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+    </nav>
+
+{% endblock %}
