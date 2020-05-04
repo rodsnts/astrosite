@@ -19,6 +19,7 @@ __email__ = "biaduque7@hotmail.com"
 __status__ = "Production"
 
 import os
+import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -153,3 +154,5 @@ STATIC_URL = '/static/'
 STATIC_DIRS = (
     os.path.join(BASE_DIR, 'static')
 )
+
+django_heroku.settings(locals())
